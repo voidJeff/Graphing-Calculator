@@ -27,7 +27,7 @@ class Dot(Sprite):
         
     def step(self):
         self.Linear()
-        Dot((self.x,self.y)
+        Dot((self.x,self.y))
         self.x += 1
 
 class Grapher(App):
