@@ -5,13 +5,6 @@ import math
 SCREEN_WIDTH = 1536
 SCREEN_HEIGHT = 1024
 
-red = Color(0xff0000, 1.0)
-green = Color(0x00ff00, 1.0)
-blue = Color(0x0000ff, 1.0)
-black = Color(0x000000, 1.0)
-purple = Color(0xff00ff, 1.0)
-thinline = LineStyle(0, black)
-
 class Axis(Sprite):
     
     xaxis = RectangleAsset(1500,1, thinline, black)
@@ -37,5 +30,23 @@ class Dot(Sprite):
         Dot((self.x,self.y)
         self.x += 1
 
+class Grapher(App):
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        
+        red = Color(0xff0000, 1.0)
+        green = Color(0x00ff00, 1.0)
+        blue = Color(0x0000ff, 1.0)
+        black = Color(0x000000, 1.0)
+        purple = Color(0xff00ff, 1.0)
+        thinline = LineStyle(0, black)
+        
+        sprite1 = Sprite(xaxis, (0, 404))
+        sprite2 = Sprite(yaxis, (718, 0))
+        
+    def step():
+        for dot in self.getSpritesbyClass(Dot):
+            dot.step()
+            
 myapp = Grapher(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
